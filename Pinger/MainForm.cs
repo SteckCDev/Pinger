@@ -8,15 +8,16 @@ namespace Pinger
 	{
 		private Pinger pinger;
 		private Thread ping;
-		private Form parrent;
+		private Form parent;
+		private bool monitoringStatus;
 
-		public MainForm(Form parrent)
+		public MainForm(Form parent)
 		{
 			InitializeComponent();
-
-			this.parrent = parrent;
+			
 			pinger = new Pinger(Settings.ip);
-
+			this.parent = parent;
+			monitoringStatus = false;
 			Screen sc = Screen.FromHandle(Handle);
 			Size = new Size(Size.Width, this.Height);
 			Location = new Point(SystemInformation.PrimaryMonitorSize.Width - Size.Width, sc.WorkingArea.Height - Size.Height);
@@ -28,7 +29,7 @@ namespace Pinger
 		{
 			int max = 0, min = 0, avg = 0, sum = 0, i = 0;
 
-			while (true)
+			while (monitoringStatus)
 			{
 				i++;
 
@@ -56,15 +57,22 @@ namespace Pinger
 			}
 		}
 
-		/* FORM */
-		/* FORM */
+		public void SetMonitoringStatus(bool status)
+		{
+			monitoringStatus = status;
+			Thread.Sleep(100);
+			if (status) Start(); else Stop();
+		}
+
 		/* FORM */
 
 		private void MainForm_MouseDown(object sender, MouseEventArgs e)
 		{
+			this.Hide();
+			monitoringStatus = false;
+			Thread.Sleep(2500);
 			Stop();
-			parrent.Show();
-			this.Close();
+			parent.Show();
 		}
 
 		private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -73,16 +81,14 @@ namespace Pinger
 		}
 
 		/* THREADS */
-		/* THREADS */
-		/* THREADS */
 
-		public void Start()
+		private void Start()
 		{
 			ping = new Thread(new ThreadStart(Monitoring));
 			ping.Start();
 		}
 
-		public void Stop()
+		private void Stop()
 		{
 			if (ping != null)
 			{

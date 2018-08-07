@@ -46,7 +46,7 @@
 			// 
 			// pct_status
 			// 
-			this.pct_status.BackColor = System.Drawing.Color.Red;
+			this.pct_status.BackColor = System.Drawing.Color.Green;
 			this.pct_status.Location = new System.Drawing.Point(0, 20);
 			this.pct_status.Name = "pct_status";
 			this.pct_status.Size = new System.Drawing.Size(220, 20);

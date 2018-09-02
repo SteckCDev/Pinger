@@ -38,6 +38,7 @@
 			this.var_avg = new System.Windows.Forms.TextBox();
 			this.lab_max = new System.Windows.Forms.Label();
 			this.var_max = new System.Windows.Forms.TextBox();
+			this.btn_exit = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// lab_ip
@@ -90,7 +91,7 @@
 			// 
 			this.lab_dif.AutoSize = true;
 			this.lab_dif.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.lab_dif.Location = new System.Drawing.Point(32, 100);
+			this.lab_dif.Location = new System.Drawing.Point(32, 99);
 			this.lab_dif.Name = "lab_dif";
 			this.lab_dif.Size = new System.Drawing.Size(78, 21);
 			this.lab_dif.TabIndex = 32;
@@ -100,7 +101,7 @@
 			// 
 			this.var_dif.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.var_dif.Font = new System.Drawing.Font("Yu Gothic UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.var_dif.Location = new System.Drawing.Point(117, 99);
+			this.var_dif.Location = new System.Drawing.Point(117, 98);
 			this.var_dif.Name = "var_dif";
 			this.var_dif.Size = new System.Drawing.Size(100, 23);
 			this.var_dif.TabIndex = 26;
@@ -111,7 +112,7 @@
 			// 
 			this.lab_avg.AutoSize = true;
 			this.lab_avg.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.lab_avg.Location = new System.Drawing.Point(32, 62);
+			this.lab_avg.Location = new System.Drawing.Point(32, 61);
 			this.lab_avg.Name = "lab_avg";
 			this.lab_avg.Size = new System.Drawing.Size(67, 21);
 			this.lab_avg.TabIndex = 31;
@@ -121,7 +122,7 @@
 			// 
 			this.var_avg.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.var_avg.Font = new System.Drawing.Font("Yu Gothic UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.var_avg.Location = new System.Drawing.Point(117, 61);
+			this.var_avg.Location = new System.Drawing.Point(117, 60);
 			this.var_avg.Name = "var_avg";
 			this.var_avg.Size = new System.Drawing.Size(100, 23);
 			this.var_avg.TabIndex = 25;
@@ -132,7 +133,7 @@
 			// 
 			this.lab_max.AutoSize = true;
 			this.lab_max.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.lab_max.Location = new System.Drawing.Point(32, 21);
+			this.lab_max.Location = new System.Drawing.Point(32, 20);
 			this.lab_max.Name = "lab_max";
 			this.lab_max.Size = new System.Drawing.Size(80, 21);
 			this.lab_max.TabIndex = 30;
@@ -142,18 +143,33 @@
 			// 
 			this.var_max.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.var_max.Font = new System.Drawing.Font("Yu Gothic UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.var_max.Location = new System.Drawing.Point(117, 21);
+			this.var_max.Location = new System.Drawing.Point(117, 20);
 			this.var_max.Name = "var_max";
 			this.var_max.Size = new System.Drawing.Size(100, 23);
 			this.var_max.TabIndex = 24;
 			this.var_max.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.var_max.TextChanged += new System.EventHandler(this.Var_TextChanged);
 			// 
+			// btn_exit
+			// 
+			this.btn_exit.BackColor = System.Drawing.Color.Crimson;
+			this.btn_exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btn_exit.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.btn_exit.ForeColor = System.Drawing.Color.Black;
+			this.btn_exit.Location = new System.Drawing.Point(17, 219);
+			this.btn_exit.Name = "btn_exit";
+			this.btn_exit.Size = new System.Drawing.Size(227, 34);
+			this.btn_exit.TabIndex = 34;
+			this.btn_exit.Text = "EXIT";
+			this.btn_exit.UseVisualStyleBackColor = false;
+			this.btn_exit.Click += new System.EventHandler(this.Btn_exit_Click);
+			// 
 			// SettingForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(260, 240);
+			this.ClientSize = new System.Drawing.Size(260, 273);
+			this.Controls.Add(this.btn_exit);
 			this.Controls.Add(this.lab_ip);
 			this.Controls.Add(this.var_ip);
 			this.Controls.Add(this.btn_check);
@@ -185,6 +201,7 @@
 		private System.Windows.Forms.TextBox var_avg;
 		private System.Windows.Forms.Label lab_max;
 		private System.Windows.Forms.TextBox var_max;
+		private System.Windows.Forms.Button btn_exit;
 	}
 }
 

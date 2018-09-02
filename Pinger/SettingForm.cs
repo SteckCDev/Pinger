@@ -58,6 +58,11 @@ namespace Pinger
 			pinger.SetMonitoringStatus(true);
 		}
 
+		private void Btn_exit_Click(object sender, EventArgs e)
+		{
+			Environment.Exit(0);
+		}
+
 		private void SaveSettings()
 		{
 			cfg.Write("max", Settings.max.ToString(), "Pinger");

@@ -6,18 +6,19 @@ namespace Pinger
 {
 	public partial class MainForm : Form
 	{
-		private Pinger pinger;
-		private Thread ping;
 		private Form parent;
+		private Thread ping;
+		private Pinger pinger;
 		private bool monitoringStatus;
 
 		public MainForm(Form parent)
 		{
 			InitializeComponent();
-			
-			pinger = new Pinger(Settings.ip);
+
 			this.parent = parent;
-			monitoringStatus = false;
+			this.pinger = new Pinger(Settings.ip);
+			this.monitoringStatus = false;
+
 			Screen sc = Screen.FromHandle(Handle);
 			Size = new Size(Size.Width, this.Height);
 			Location = new Point(SystemInformation.PrimaryMonitorSize.Width - Size.Width, sc.WorkingArea.Height - Size.Height);
@@ -27,13 +28,14 @@ namespace Pinger
 
 		private void Monitoring()
 		{
-			int max = 0, min = 0, avg = 0, sum = 0, i = 0;
+			int time = 0, max = 0, min = 0, avg = 0, sum = 0, i = 0;
+			string status = "";
 
 			while (monitoringStatus)
 			{
 				i++;
 
-				int time = pinger.SendPackage();
+				time = pinger.SendPackage();
 
 				if (time != 0)
 				{
@@ -42,7 +44,8 @@ namespace Pinger
 					avg = sum / i;
 				}
 
-				SetStatus($"Ping: {time} ms, Max: {max} ms, Avg: {avg} ms");
+				status = time > 0 ? $"Ping: {time} ms, Max: {max} ms, Avg: {avg} ms" : "A package was lost";
+				SetStatus(status);
 
 				if (max < Settings.max && avg < Settings.avg && min - avg < Settings.dif)
 				{
@@ -61,7 +64,10 @@ namespace Pinger
 		{
 			monitoringStatus = status;
 			Thread.Sleep(100);
-			if (status) Start(); else Stop();
+			if (status)
+				Start();
+			else
+				Stop();
 		}
 
 		/* FORM */

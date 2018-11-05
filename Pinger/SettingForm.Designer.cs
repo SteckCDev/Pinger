@@ -68,7 +68,7 @@
 			this.btn_check.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.btn_check.Location = new System.Drawing.Point(17, 186);
 			this.btn_check.Name = "btn_check";
-			this.btn_check.Size = new System.Drawing.Size(92, 34);
+			this.btn_check.Size = new System.Drawing.Size(114, 34);
 			this.btn_check.TabIndex = 28;
 			this.btn_check.Text = "CHECK";
 			this.btn_check.UseVisualStyleBackColor = true;
@@ -79,9 +79,9 @@
 			this.btn_start.Enabled = false;
 			this.btn_start.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btn_start.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.btn_start.Location = new System.Drawing.Point(107, 186);
+			this.btn_start.Location = new System.Drawing.Point(129, 186);
 			this.btn_start.Name = "btn_start";
-			this.btn_start.Size = new System.Drawing.Size(137, 34);
+			this.btn_start.Size = new System.Drawing.Size(115, 34);
 			this.btn_start.TabIndex = 29;
 			this.btn_start.Text = "START";
 			this.btn_start.UseVisualStyleBackColor = true;
